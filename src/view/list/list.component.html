@@ -1,0 +1,5 @@
+<div class="flex flex-col gap-y-2">
+  @for (calligraphy of (calligraphies$ | async); track calligraphy.id) {
+    <app-list-item [calligraphy]="calligraphy" />
+  }
+</div>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Calligraphy } from "../model/Calligraphy";
 import { AsyncPipe, NgOptimizedImage, SlicePipe } from "@angular/common";
 import { Observable } from "rxjs";
+import { Calligraphy } from "../../domain/model/Calligraphy";
+import { ListItemComponent } from "../list-item/list-item.component";
+import { CalligraphyService } from "../../domain/services/calligraphy.service";
 
 @Component({
   selector: 'app-list',
@@ -10,15 +11,15 @@ import { Observable } from "rxjs";
   imports: [
     NgOptimizedImage,
     SlicePipe,
-    AsyncPipe
+    AsyncPipe,
+    ListItemComponent
   ],
   templateUrl: './list.component.html',
-  styleUrl: './list.component.css'
 })
 export class ListComponent {
   calligraphies$: Observable<Calligraphy[]>;
 
-  constructor(private httpClient: HttpClient) {
-    this.calligraphies$ =  this.httpClient.get<Calligraphy[]>("./haiku.json");
+  constructor(readonly calligraphyService:CalligraphyService) {
+    this.calligraphies$ =  calligraphyService.getHaikus();
   }
 }

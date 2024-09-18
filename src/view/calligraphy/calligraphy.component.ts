@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './calligraphy.component.html',
-  styleUrl: './calligraphy.component.css'
 })
 export class CalligraphyComponent {
 
