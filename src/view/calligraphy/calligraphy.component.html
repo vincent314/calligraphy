@@ -1,1 +1,10 @@
-<p>calligraphy works!</p>
+<div class="bg-slate-100 p-4 rounded-2xl flex-col gap-3">
+  @let c = calligraphy$ | async ;
+  <div class="text-3xl font-bold">{{ c?.id }}</div>
+  <div class="text-4xl">{{ c?.japanese }}</div>
+  <div class="text-3xl">{{ c?.roomaji }}</div>
+
+  @for (img of c?.img; track img.large) {
+    <app-image [img]="img"/>
+  }
+</div>
