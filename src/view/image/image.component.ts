@@ -6,7 +6,7 @@ import { TitleCasePipe } from "@angular/common";
   selector: 'app-image',
   standalone: true,
   imports: [
-    TitleCasePipe
+    TitleCasePipe,
   ],
   templateUrl: './image.component.html',
 })

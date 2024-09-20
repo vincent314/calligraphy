@@ -1,10 +1,14 @@
+<div class="text-3xl"><a routerLink="/">
+  <ng-icon name="heroHomeSolid"></ng-icon>
+</a></div>
 <div class="bg-slate-100 p-4 rounded-2xl flex-col gap-3">
   @let c = calligraphy$ | async ;
-  <div class="text-3xl font-bold">{{ c?.id }}</div>
-  <div class="text-4xl">{{ c?.japanese }}</div>
-  <div class="text-3xl">{{ c?.roomaji }}</div>
+  <div><span class="text-2xl font-bold">{{ c?.id }}</span>&nbsp;<span class="text-lg text-gray-500">{{ c?.date | date }}</span></div>
+  <div class="text-3xl text-red-900">{{ c?.japanese }}</div>
+  <div class="text-2xl text-red-900">{{ c?.roomaji }}</div>
+  <div class="text-2xl text-blue-900">{{ c?.french }}</div>
 
   @for (img of c?.img; track img.large) {
-    <app-image [img]="img"/>
+    <app-image [img]="img" />
   }
 </div>
