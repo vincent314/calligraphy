@@ -1,0 +1,9 @@
+<div class="rounded-2xl bg-slate-100 p-5">
+  <form (ngSubmit)="login(loginForm.value)" #loginForm="ngForm"
+        class="grid grid-cols-2 gap-4 w-1/2">
+    <h1 class="col-span-2 font-bold text-2xl justify-self-center">Connexion</h1>
+    <label class="justify-self-end">Email</label><input name="email" ngModel>
+    <label class="justify-self-end">Mot de passe</label><input name="password" type="password" ngModel>
+    <button type="submit" class="col-span-2 rounded-2xl bg-slate-700 justify-self-center py-2 px-4 text-slate-100">Connexion</button>
+  </form>
+</div>
