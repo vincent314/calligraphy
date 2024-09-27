@@ -13,7 +13,7 @@ export class RealTimeService {
   }
 
   async getCalligraphies(): Promise<Calligraphy[]> {
-    const dbRef = ref(this.database, "/");
+    const dbRef = ref(this.database, "/calligraphies");
     const snapshot = await get(dbRef);
     if (snapshot.exists()) {
       console.debug(snapshot.val());
@@ -24,7 +24,7 @@ export class RealTimeService {
   }
 
   async getCalligraphy(id: number): Promise<Calligraphy> {
-    const dbRef = ref(this.database, "/");
+    const dbRef = ref(this.database, "/calligraphies");
     const snapshot = await get(child(dbRef, `/${id}`))
     if (snapshot.exists()) {
       console.debug(snapshot.val());
