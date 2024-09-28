@@ -1,7 +1,7 @@
 {
   "rules": {
     "calligraphies": {
-      ".read": true,
+      ".read": "auth.uid != null",
       ".write": false
     }
   }
