@@ -3,9 +3,9 @@ import { ActivatedRoute, RouterLink } from "@angular/router";
 import { CalligraphyService } from "../../domain/services/calligraphy.service";
 import { Calligraphy } from "../../domain/model/Calligraphy";
 import { Observable } from "rxjs";
-import { AsyncPipe, DatePipe, NgOptimizedImage } from "@angular/common";
+import { AsyncPipe, DatePipe } from "@angular/common";
 import { ImageComponent } from "../image/image.component";
-import { NG_ICON_DIRECTIVES, NgIcon, NgIconComponent, provideIcons } from "@ng-icons/core";
+import { NgIcon, NgIconComponent, provideIcons } from "@ng-icons/core";
 import { heroHomeSolid } from "@ng-icons/heroicons/solid";
 
 @Component({
@@ -13,7 +13,6 @@ import { heroHomeSolid } from "@ng-icons/heroicons/solid";
   standalone: true,
   imports: [
     AsyncPipe,
-    NgOptimizedImage,
     ImageComponent,
     NgIcon,
     NgIconComponent,
@@ -30,6 +29,4 @@ export class CalligraphyComponent {
     const id = parseInt(route.snapshot.paramMap.get("id")!);
     this.calligraphy$ = calligraphyService.getHaiku(id)
   }
-
-  protected readonly NG_ICON_DIRECTIVES = NG_ICON_DIRECTIVES;
 }

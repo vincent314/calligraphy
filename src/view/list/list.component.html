@@ -1,5 +1,12 @@
+<span class="text-3xl text-slate-100">
+  @if (ordering == OrderingEnum.ASCENDING) {
+    <ng-icon name="heroBarsArrowUpSolid" (click)="switchOrdering()"></ng-icon>
+  } @else {
+    <ng-icon name="heroBarsArrowDownSolid" (click)="switchOrdering()"></ng-icon>
+  }
+</span>
 <div class="flex flex-col gap-y-2">
-  @for (calligraphy of (calligraphies$ | async); track calligraphy.id) {
-    <app-list-item [calligraphy]="calligraphy" />
+  @for (calligraphy of (calligraphies$ | async | orderBy:'date':ordering); track calligraphy.id) {
+    <app-list-item [calligraphy]="calligraphy"/>
   }
 </div>
